@@ -16,7 +16,7 @@ onready var ladderCheck: = $LadderCheck
 onready var jumpBufferTimer: = $JumpBufferTimer
 onready var coyoteJumpTimer = $CoyotejumpTimer
 
-fu _physics_process(delta):
+ _physics_process(delta):
 	var input = Vector2.ZERO
 	input.x = Input.get_axis("left", "right")
 	input.y = Input.get_axis("ui_up", "ui_down")
