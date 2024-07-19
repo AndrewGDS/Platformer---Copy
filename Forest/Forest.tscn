@@ -1,0 +1,853 @@
+[gd_scene load_steps=69 format=2]
+
+[ext_resource path="res://Camera2D.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Forest/bb.png" type="Texture" id=2]
+[ext_resource path="res://Player/Player back up 2.0.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Forest/b tree-Sheet.png" type="Texture" id=4]
+[ext_resource path="res://Lighting/light.png" type="Texture" id=5]
+[ext_resource path="res://Fallen Kingdom/Board.png" type="Texture" id=6]
+[ext_resource path="res://Wind.png" type="Texture" id=7]
+[ext_resource path="res://Forest/bares.png" type="Texture" id=8]
+[ext_resource path="res://Dungeon/Screenshot from 2023-12-26 16-17-23.png" type="Texture" id=9]
+[ext_resource path="res://Battle/aaa.png" type="Texture" id=10]
+[ext_resource path="res://Battle/smoke Air.png" type="Texture" id=11]
+[ext_resource path="res://Music/Main Menu Music.mp3" type="AudioStream" id=12]
+[ext_resource path="res://Dungeon/8.png" type="Texture" id=13]
+[ext_resource path="res://Forest/Spark lightning-Sheet.png" type="Texture" id=14]
+[ext_resource path="res://Music/rain-and-thunder-16705.mp3" type="AudioStream" id=15]
+[ext_resource path="res://Forest/Forest.gd" type="Script" id=16]
+[ext_resource path="res://Music/thunder-25689 (online-audio-converter.com).wav" type="AudioStream" id=17]
+[ext_resource path="res://Forest/1.png" type="Texture" id=18]
+[ext_resource path="res://Fire blast/Circle.png" type="Texture" id=19]
+[ext_resource path="res://Enemies/Parasyte dark.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Enemies/Bat.tscn" type="PackedScene" id=21]
+[ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=22]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 200, 379 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 4 )
+region = Rect2( 200, 0, 200, 379 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
+region = Rect2( 400, 0, 200, 379 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 4 )
+region = Rect2( 600, 0, 200, 379 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 4 )
+region = Rect2( 800, 0, 200, 379 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="AtlasTexture" id=58]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 200, 379 )
+
+[sub_resource type="AtlasTexture" id=59]
+atlas = ExtResource( 4 )
+region = Rect2( 200, 0, 200, 379 )
+
+[sub_resource type="AtlasTexture" id=60]
+atlas = ExtResource( 4 )
+region = Rect2( 400, 0, 200, 379 )
+
+[sub_resource type="AtlasTexture" id=61]
+atlas = ExtResource( 4 )
+region = Rect2( 600, 0, 200, 379 )
+
+[sub_resource type="AtlasTexture" id=62]
+atlas = ExtResource( 4 )
+region = Rect2( 800, 0, 200, 379 )
+
+[sub_resource type="SpriteFrames" id=63]
+animations = [ {
+"frames": [ SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[sub_resource type="Environment" id=7]
+background_mode = 4
+fog_enabled = true
+fog_color = Color( 0.501961, 0.6, 0.701961, 1 )
+glow_enabled = true
+glow_intensity = 2.08
+glow_strength = 0.91
+glow_blend_mode = 1
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 624, 484 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 7 )
+region = Rect2( 624, 0, 624, 484 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 7 )
+region = Rect2( 1248, 0, 624, 484 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 7 )
+region = Rect2( 1872, 0, 624, 484 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 7 )
+region = Rect2( 2496, 0, 624, 484 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 7 )
+region = Rect2( 3120, 0, 624, 484 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 7 )
+region = Rect2( 3744, 0, 624, 484 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 7 )
+region = Rect2( 4368, 0, 624, 484 )
+
+[sub_resource type="SpriteFrames" id=33]
+animations = [ {
+"frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
+"loop": true,
+"name": "default",
+"speed": 30.0
+} ]
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 11 )
+region = Rect2( 0, 0, 1453, 378 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 11 )
+region = Rect2( 1453, 0, 1453, 378 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 11 )
+region = Rect2( 2906, 0, 1453, 378 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 11 )
+region = Rect2( 4359, 0, 1453, 378 )
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 11 )
+region = Rect2( 5812, 0, 1453, 378 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 11 )
+region = Rect2( 7265, 0, 1453, 378 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 11 )
+region = Rect2( 8718, 0, 1453, 378 )
+
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 11 )
+region = Rect2( 10171, 0, 1453, 378 )
+
+[sub_resource type="SpriteFrames" id=42]
+animations = [ {
+"frames": [ SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ) ],
+"loop": true,
+"name": "smoke",
+"speed": 12.0
+} ]
+
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 826, 397 )
+
+[sub_resource type="AtlasTexture" id=44]
+atlas = ExtResource( 14 )
+region = Rect2( 826, 0, 826, 397 )
+
+[sub_resource type="AtlasTexture" id=45]
+atlas = ExtResource( 14 )
+region = Rect2( 1652, 0, 826, 397 )
+
+[sub_resource type="AtlasTexture" id=46]
+atlas = ExtResource( 14 )
+region = Rect2( 2478, 0, 826, 397 )
+
+[sub_resource type="AtlasTexture" id=48]
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 826, 397 )
+
+[sub_resource type="AtlasTexture" id=49]
+atlas = ExtResource( 14 )
+region = Rect2( 826, 0, 826, 397 )
+
+[sub_resource type="AtlasTexture" id=50]
+atlas = ExtResource( 14 )
+region = Rect2( 1652, 0, 826, 397 )
+
+[sub_resource type="AtlasTexture" id=51]
+atlas = ExtResource( 14 )
+region = Rect2( 2478, 0, 826, 397 )
+
+[sub_resource type="AtlasTexture" id=52]
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 826, 397 )
+
+[sub_resource type="AtlasTexture" id=53]
+atlas = ExtResource( 14 )
+region = Rect2( 826, 0, 826, 397 )
+
+[sub_resource type="AtlasTexture" id=54]
+atlas = ExtResource( 14 )
+region = Rect2( 1652, 0, 826, 397 )
+
+[sub_resource type="AtlasTexture" id=55]
+atlas = ExtResource( 14 )
+region = Rect2( 2478, 0, 826, 397 )
+
+[sub_resource type="SpriteFrames" id=47]
+animations = [ {
+"frames": [ null, null, null, null, null, null, SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[sub_resource type="Animation" id=56]
+resource_name = "Platform"
+length = 9.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.06, 0.16, 0.26, 0.36, 0.46, 0.56, 0.66, 0.76, 0.86, 0.96, 1.06, 1.16 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Music/Thunder:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -12.0 ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("Music/Thunder")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 17 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.05, 1.16, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=57]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("StaticBody2D2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Music/Thunder:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -12.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Music/Thunder:stream")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 17 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Music/Thunder:pitch_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Music/Thunder:autoplay")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Music/Thunder:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Sprite2:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Dark red Forest" type="Node2D"]
+script = ExtResource( 16 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+modulate = Color( 0.419608, 0.27451, 0.27451, 1 )
+position = Vector2( -84, 11 )
+z_index = 210
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+position = Vector2( 187, 172 )
+
+[node name="Camera2D" parent="Player" instance=ExtResource( 1 )]
+position = Vector2( 53, -74 )
+zoom = Vector2( 1.5, 1.5 )
+limit_left = -245
+limit_top = -10000
+limit_right = 10000
+limit_bottom = 120
+
+[node name="Light2" type="Sprite" parent="Player"]
+modulate = Color( 0.901961, 0.164706, 0.823529, 0.180392 )
+position = Vector2( 2, -15 )
+rotation = 0.0174533
+scale = Vector2( -0.090842, 0.134845 )
+z_index = 4
+texture = ExtResource( 5 )
+
+[node name="Light2D4" type="Light2D" parent="Player"]
+position = Vector2( 13, -8 )
+scale = Vector2( 0.0845097, 0.09375 )
+texture = ExtResource( 5 )
+offset = Vector2( -147.692, -112 )
+color = Color( 1, 0.937255, 0, 1 )
+energy = 1.7
+
+[node name="Light2D5" type="Light2D" parent="Player"]
+visible = false
+position = Vector2( 84, -16 )
+scale = Vector2( 0.479041, 0.470703 )
+z_index = 4
+texture = ExtResource( 5 )
+offset = Vector2( -147.692, -112 )
+color = Color( 1, 0.937255, 0, 0.168627 )
+energy = 1.5
+
+[node name="Trees" type="Node2D" parent="."]
+position = Vector2( -84, 11 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Trees"]
+modulate = Color( 0.223529, 0.176471, 0.176471, 1 )
+position = Vector2( -44, -91 )
+scale = Vector2( 0.7425, 1 )
+frames = SubResource( 6 )
+playing = true
+
+[node name="sssssssssssssssss" type="AnimatedSprite" parent="Trees"]
+modulate = Color( 0.223529, 0.176471, 0.176471, 1 )
+position = Vector2( 60, -101 )
+scale = Vector2( 0.91, 0.977573 )
+frames = SubResource( 63 )
+frame = 2
+playing = true
+
+[node name="sssssssssssssssss3" type="AnimatedSprite" parent="Trees"]
+modulate = Color( 0.223529, 0.176471, 0.176471, 1 )
+position = Vector2( 1100, -31.1875 )
+scale = Vector2( 0.53, 0.669195 )
+frames = SubResource( 63 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite14" type="AnimatedSprite" parent="Trees"]
+modulate = Color( 0.223529, 0.176471, 0.176471, 1 )
+position = Vector2( 1328, -78 )
+scale = Vector2( 0.6925, 0.745383 )
+frames = SubResource( 6 )
+frame = 4
+playing = true
+
+[node name="sssssssssssssssss2" type="AnimatedSprite" parent="Trees"]
+modulate = Color( 0.223529, 0.176471, 0.176471, 1 )
+position = Vector2( 381.625, -47 )
+scale = Vector2( 0.56625, 0.837071 )
+frames = SubResource( 63 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite17" type="AnimatedSprite" parent="Trees"]
+modulate = Color( 0.223529, 0.176471, 0.176471, 1 )
+position = Vector2( 441.125, -18.375 )
+scale = Vector2( 0.481249, 0.53628 )
+frames = SubResource( 6 )
+frame = 3
+playing = true
+
+[node name="AnimatedSprite15" type="AnimatedSprite" parent="Trees"]
+modulate = Color( 0.223529, 0.176471, 0.176471, 1 )
+position = Vector2( 1496, -48 )
+scale = Vector2( 0.6925, 0.745383 )
+frames = SubResource( 6 )
+frame = 3
+playing = true
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="Trees"]
+modulate = Color( 0.223529, 0.176471, 0.176471, 1 )
+position = Vector2( 144.125, -69 )
+scale = Vector2( 0.67875, 1 )
+z_index = -2
+frames = SubResource( 6 )
+frame = 4
+playing = true
+
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="Trees"]
+modulate = Color( 0.223529, 0.176471, 0.176471, 1 )
+position = Vector2( 210, -32 )
+scale = Vector2( 0.559375, 0.798153 )
+z_index = -2
+frames = SubResource( 6 )
+frame = 4
+playing = true
+
+[node name="AnimatedSprite6" type="AnimatedSprite" parent="Trees"]
+modulate = Color( 0.105882, 0.0705882, 0.0705882, 1 )
+position = Vector2( -158, 105 )
+scale = Vector2( 0.324844, 0.368993 )
+z_index = 6
+frames = SubResource( 6 )
+frame = 3
+playing = true
+
+[node name="AnimatedSprite5" type="AnimatedSprite" parent="Trees"]
+modulate = Color( 0.105882, 0.0705882, 0.0705882, 1 )
+position = Vector2( -19, 95 )
+scale = Vector2( 0.339688, 0.484688 )
+z_index = 6
+frames = SubResource( 6 )
+frame = 3
+playing = true
+
+[node name="AnimatedSprite9" type="AnimatedSprite" parent="Trees"]
+modulate = Color( 0.105882, 0.0705882, 0.0705882, 1 )
+position = Vector2( 992, 145 )
+scale = Vector2( 0.324844, 0.368993 )
+z_index = 6
+frames = SubResource( 6 )
+frame = 3
+playing = true
+
+[node name="AnimatedSprite11" type="AnimatedSprite" parent="Trees"]
+modulate = Color( 0.105882, 0.0705882, 0.0705882, 1 )
+position = Vector2( 1593, 107 )
+scale = Vector2( 0.339688, 0.484688 )
+z_index = 211
+frames = SubResource( 6 )
+frame = 3
+playing = true
+
+[node name="AnimatedSprite12" type="AnimatedSprite" parent="Trees"]
+modulate = Color( 0.105882, 0.0705882, 0.0705882, 1 )
+position = Vector2( 1482.97, 121.848 )
+scale = Vector2( 0.324844, 0.368993 )
+z_index = 6
+frames = SubResource( 6 )
+frame = 3
+playing = true
+
+[node name="AnimatedSprite10" type="AnimatedSprite" parent="Trees"]
+modulate = Color( 0.105882, 0.0705882, 0.0705882, 1 )
+position = Vector2( 879, 107 )
+scale = Vector2( 0.339688, 0.484688 )
+z_index = 211
+frames = SubResource( 6 )
+frame = 3
+playing = true
+
+[node name="AnimatedSprite8" type="AnimatedSprite" parent="Trees"]
+modulate = Color( 0.141176, 0.0862745, 0.0862745, 1 )
+position = Vector2( 350, 88 )
+scale = Vector2( 0.339688, 0.418006 )
+z_index = 6
+frames = SubResource( 6 )
+frame = 3
+playing = true
+
+[node name="Bb" type="Sprite" parent="."]
+modulate = Color( 1, 0.819608, 0, 1 )
+position = Vector2( 643, -61 )
+texture = ExtResource( 18 )
+
+[node name="Bb2" type="Sprite" parent="."]
+visible = false
+modulate = Color( 0.564706, 0, 0, 1 )
+position = Vector2( -37, -82 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
+position = Vector2( -228, 111 )
+polygon = PoolVector2Array( -141, 67, -130, 67, -129, 63, -105, 63, -104, 65, -104, 73, -105, 73, -105, 80, -103, 80, -104, 89, -105, 89, -105, 97, -95, 97, -93, 93, -66, 93, -66, 106, -68, 106, -68, 117, -56, 117, -56, 109, -59, 107, -58, 103, -56, 92, -54, 92, -52, 94, -46, 93, -47, 88, -14, 89, -14, 94, -9, 94, -5, 92, -2, 105, -2, 108, -3, 107, -4, 110, -4, 116, 8, 116, 7, 106, 6, 106, 6, 92, 33, 92, 33, 98, 44, 97, 45, 90, 43, 89, 43, 87, 90, 86, 90, 92, 102, 92, 102, 85, 100, 83, 115, 73, 122, 73, 121, 66, 120, 65, 120, 49, 130, 48, 134, 41, 133, 30, 395, 25, 392, -31, 266, -35, 266, -75, 167, -76, 166, -92, 162, -96, 56, -97, 56, -318, 19, -398, -16, -320, -18, -97, -52, -106, -88, -89, -108, -79, -109, -73, -106, -71, -105, -67, -108, -64, -104, -59, -107, -57, -107, -54, -105, -52, -107, -48, -107, -43, -105, -42, -106, -39, -105, -34, -108, -31, -142, -14, -143, -6, -141, 8, -143, 17, -141, 26, -141, 33, -139, 29, -138, 32, -140, 33, -140, 36, -139, 36, -139, 42, -140, 42, -140, 51, -139, 51, -138, 58, -141, 60, -141, 60 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -228, 111 )
+polygon = PoolVector2Array( -141, 67, -130, 67, -129, 63, -105, 63, -104, 65, -104, 73, -105, 73, -105, 80, -103, 80, -104, 89, -105, 89, -105, 97, -95, 97, -93, 93, -66, 93, -66, 106, -68, 106, -68, 117, -56, 117, -56, 109, -59, 107, -58, 103, -56, 92, -54, 92, -52, 94, -46, 93, -47, 88, -14, 89, -14, 94, -9, 94, -5, 92, -2, 105, -2, 108, -3, 107, -4, 110, -4, 116, 1269, 111, 1782, 74, 1782, 10, 1919, 35, 1907, -372, 1759, -369, 1761, -52, 1632, -56, 1632, -65, 1153, -66, 1148, -61, 1143, -53, 1045, -52, 999, -37, 960, -28, 952, -38, 907, -51, 836, -61, 761, -68, 688, -62, 589, -38, 546, -55, 509, -65, 456, -71, 371, -68, 289, -68, 266, -75, 190, -76, 178, -86, 162, -96, 56, -97, 56, -318, 19, -398, -16, -320, -18, -97, -52, -106, -88, -89, -108, -79, -109, -73, -106, -71, -105, -67, -108, -64, -104, -59, -107, -57, -107, -54, -105, -52, -107, -48, -107, -43, -105, -42, -106, -39, -105, -34, -108, -31, -142, -14, -143, -6, -141, 8, -143, 17, -141, 26, -141, 33, -139, 29, -138, 32, -140, 33, -140, 36, -139, 36, -139, 42, -140, 42, -140, 51, -139, 51, -138, 58, -141, 60, -141, 60 )
+
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="Light2D" type="Light2D" parent="Lights"]
+position = Vector2( -190, -77.7336 )
+scale = Vector2( 0.134509, 0.269746 )
+z_index = 2
+texture = ExtResource( 5 )
+offset = Vector2( -147.692, -112 )
+color = Color( 1, 0, 0, 1 )
+energy = 2.0
+
+[node name="Light2D3" type="Light2D" parent="Lights"]
+position = Vector2( -190, -131.734 )
+scale = Vector2( 0.134509, 0.269746 )
+z_index = 2
+texture = ExtResource( 5 )
+offset = Vector2( -147.692, -112 )
+color = Color( 1, 0, 0, 1 )
+energy = 1.9
+
+[node name="Light2D2" type="Light2D" parent="Lights"]
+position = Vector2( 864.09, 108.347 )
+scale = Vector2( 0.109962, 0.122593 )
+z_index = 2
+texture = ExtResource( 5 )
+offset = Vector2( -147.692, -112 )
+color = Color( 1, 0, 0, 1 )
+energy = 1.8
+
+[node name="Light2D6" type="Light2D" parent="Lights"]
+position = Vector2( 897.09, 109.628 )
+scale = Vector2( 0.109962, 0.12064 )
+z_index = 2
+texture = ExtResource( 5 )
+offset = Vector2( -147.692, -112 )
+color = Color( 1, 0, 0, 1 )
+energy = 1.8
+
+[node name="Light2D5" type="Light2D" parent="Lights"]
+position = Vector2( -192, 97.6126 )
+scale = Vector2( 0.134509, 0.238802 )
+z_index = 9
+texture = ExtResource( 5 )
+offset = Vector2( -147.692, -112 )
+color = Color( 1, 0, 0, 1 )
+energy = 1.93
+
+[node name="Light2D4" type="Light2D" parent="Lights"]
+position = Vector2( -175.769, -21.8874 )
+scale = Vector2( 0.225625, 0.207551 )
+z_index = 2
+texture = ExtResource( 5 )
+offset = Vector2( -147.692, -112 )
+color = Color( 1, 0, 0, 1 )
+energy = 2.2
+
+[node name="Light2D7" type="Light2D" parent="Lights"]
+position = Vector2( 1487.47, 99.5625 )
+scale = Vector2( 0.217247, 0.121094 )
+z_index = 2
+texture = ExtResource( 5 )
+offset = Vector2( -147.692, -112 )
+color = Color( 1, 0, 0, 1 )
+energy = 2.0
+
+[node name="sss" type="Light2D" parent="Lights"]
+position = Vector2( 2584.84, 511 )
+scale = Vector2( 11.4687, 1.66932 )
+z_index = 2
+texture = ExtResource( 5 )
+offset = Vector2( -147.692, -112 )
+color = Color( 1, 0.431373, 0.211765, 1 )
+energy = 1.5
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+self_modulate = Color( 1, 1, 1, 0.564706 )
+position = Vector2( -240, -152.437 )
+scale = Vector2( 0.0801527, 0.29027 )
+z_index = -1
+texture = ExtResource( 6 )
+offset = Vector2( 346.119, 391.015 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+self_modulate = Color( 1, 1, 1, 0.564706 )
+position = Vector2( 866.667, 76.6121 )
+scale = Vector2( 0.862287, 0.0630904 )
+z_index = -1
+texture = ExtResource( 6 )
+offset = Vector2( 346.119, 391.015 )
+
+[node name="Rain" type="Node2D" parent="."]
+
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="Rain"]
+modulate = Color( 0.65098, 0.647059, 0.560784, 0.47451 )
+position = Vector2( 8.45459, -79.5 )
+scale = Vector2( 0.828513, 0.828513 )
+frames = SubResource( 33 )
+frame = 7
+playing = true
+flip_h = true
+
+[node name="AnimatedSprite5" type="AnimatedSprite" parent="Rain"]
+modulate = Color( 0.65098, 0.647059, 0.560784, 0.47451 )
+position = Vector2( -79, -160 )
+scale = Vector2( 0.828513, 0.828513 )
+frames = SubResource( 33 )
+frame = 6
+playing = true
+flip_h = true
+
+[node name="Bares" type="Sprite" parent="."]
+position = Vector2( -245, 97 )
+texture = ExtResource( 8 )
+
+[node name="Bares2" type="Sprite" parent="."]
+position = Vector2( 376, 134 )
+rotation = 0.340296
+texture = ExtResource( 8 )
+
+[node name="Bares3" type="Sprite" parent="."]
+position = Vector2( 931, 123 )
+texture = ExtResource( 8 )
+
+[node name="Bares4" type="Sprite" parent="."]
+position = Vector2( 1187, 123 )
+texture = ExtResource( 8 )
+
+[node name="Bares5" type="Sprite" parent="."]
+position = Vector2( 1443, 123 )
+texture = ExtResource( 8 )
+
+[node name="bb-12-bb-17-24" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -257, 178 )
+scale = Vector2( 0.080394, -0.618885 )
+z_index = -5
+texture = ExtResource( 9 )
+offset = Vector2( 68.4131, 371.636 )
+
+[node name="bb-12-bb-17-25" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1609, 13 )
+scale = Vector2( 0.080394, -0.618885 )
+z_index = -5
+texture = ExtResource( 9 )
+
+[node name="bb-12-bb-17-26" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1162.75, 90 )
+scale = Vector2( 0.360736, -0.0614335 )
+z_index = -4
+texture = ExtResource( 9 )
+
+[node name="background" type="Node2D" parent="."]
+
+[node name="Aaa" type="Sprite" parent="background"]
+modulate = Color( 0.447059, 0.0941176, 0.0941176, 1 )
+position = Vector2( 648.899, 24.5 )
+scale = Vector2( 1.99122, 0.466805 )
+z_index = -5
+texture = ExtResource( 10 )
+
+[node name="AnimatedSprite8" type="AnimatedSprite" parent="background"]
+modulate = Color( 0.447059, 0.0509804, 0.0509804, 1 )
+position = Vector2( 642, -172.001 )
+scale = Vector2( 1.2278, 0.656081 )
+z_index = -6
+frames = SubResource( 42 )
+animation = "smoke"
+frame = 3
+playing = true
+
+[node name="AnimatedSprite12" type="AnimatedSprite" parent="background"]
+modulate = Color( 0.701961, 0, 0, 0.556863 )
+position = Vector2( 645.188, -86 )
+scale = Vector2( 1.22892, 0.891531 )
+z_index = -7
+frames = SubResource( 42 )
+animation = "smoke"
+frame = 3
+playing = true
+
+[node name="Board2" type="Sprite" parent="background"]
+modulate = Color( 1, 0, 0.494118, 0.423529 )
+position = Vector2( 705.037, -69.7455 )
+rotation = 3.14159
+scale = Vector2( 3.16592, -1.94533 )
+z_index = -100
+texture = ExtResource( 13 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.831373 )
+position = Vector2( 137.5, -83.25 )
+scale = Vector2( 0.75908, 1.08942 )
+z_index = -6
+frames = SubResource( 47 )
+frame = 57
+playing = true
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Platform = SubResource( 56 )
+anims/RESET = SubResource( 57 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 679, -80.5 )
+scale = Vector2( 2.07264, 1.09068 )
+z_index = -6
+texture = ExtResource( 14 )
+hframes = 4
+
+[node name="Sprite4" type="Sprite" parent="."]
+modulate = Color( 0.435294, 0.0392157, 0.0392157, 1 )
+position = Vector2( 733.076, -137.631 )
+scale = Vector2( 8.64936, 2.83991 )
+z_index = -500
+texture = ExtResource( 19 )
+
+[node name="Music" type="Node2D" parent="."]
+
+[node name="Background Music" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 12 )
+volume_db = -18.0
+autoplay = true
+
+[node name="Background Music2" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 15 )
+volume_db = -15.063
+autoplay = true
+
+[node name="Thunder" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 17 )
+volume_db = -12.0
+autoplay = true
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Parasyte" parent="Enemies" instance=ExtResource( 20 )]
+position = Vector2( 603, 32 )
+
+[node name="Bat" parent="Enemies" instance=ExtResource( 21 )]
+modulate = Color( 0.564706, 0.152941, 0.152941, 1 )
+position = Vector2( 429, 43 )
+
+[node name="Bat2" parent="Enemies" instance=ExtResource( 21 )]
+modulate = Color( 0.666667, 0.00392157, 0.00392157, 1 )
+position = Vector2( 1170, 33 )
+
+[node name="Bat3" parent="Enemies" instance=ExtResource( 21 )]
+modulate = Color( 0.682353, 0.0470588, 0.0470588, 1 )
+position = Vector2( 1050, 32 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthUI" parent="CanvasLayer" instance=ExtResource( 22 )]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 61.0
+margin_bottom = 15.0

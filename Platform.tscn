@@ -1,0 +1,221 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Player platform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://BBBB/Spikes.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Forest/1.2.png" type="Texture" id=3]
+[ext_resource path="res://Forest/1.png" type="Texture" id=4]
+[ext_resource path="res://Forest/bares.png" type="Texture" id=5]
+[ext_resource path="res://light.png" type="Texture" id=6]
+[ext_resource path="res://white box.png" type="Texture" id=7]
+[ext_resource path="res://Forest/Spark lightning-Sheet.png" type="Texture" id=8]
+[ext_resource path="res://BBBB/TileMap.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Enemies/WalkingEnemy.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Ladder.tscn" type="PackedScene" id=12]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 413, 397 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 8 )
+region = Rect2( 413, 0, 413, 397 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 8 )
+region = Rect2( 826, 0, 413, 397 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 8 )
+region = Rect2( 1239, 0, 413, 397 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 8 )
+region = Rect2( 1652, 0, 413, 397 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 8 )
+region = Rect2( 2065, 0, 413, 397 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 8 )
+region = Rect2( 2478, 0, 413, 397 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 8 )
+region = Rect2( 2891, 0, 413, 397 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[node name="Platform" type="Node2D"]
+
+[node name="PlayerPlatform" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1332, -54 )
+z_index = 5
+
+[node name="Camera2D" type="Camera2D" parent="PlayerPlatform"]
+position = Vector2( 15, -64 )
+current = true
+zoom = Vector2( 0.4, 0.4 )
+
+[node name="12" type="Sprite" parent="."]
+visible = false
+position = Vector2( 1104, 184 )
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 296, -128, 296, 88, 296, 96, 400, 96, 416, 104, 424, 112, 504, 112, 531, 121, 706, 120, 760, 126, 773, 129, 831, 150, 880, 135, 928, 125, 995, 119, 1074, 123, 1149, 135, 1206, 157, 1296, 136, 1384, 136, 1400, 128, 1872, 120, 1872, 136, 2000, 136, 2000, 272, 216, 272, 216, -136, 256, -208 )
+
+[node name="light" type="Node2D" parent="."]
+
+[node name="Light2D2" type="Light2D" parent="light"]
+position = Vector2( 256, 35 )
+texture = ExtResource( 6 )
+texture_scale = 0.12
+color = Color( 1, 0, 0, 1 )
+energy = 3.46
+shadow_gradient_length = 3.0
+shadow_filter = 2
+shadow_filter_smooth = 50.0
+
+[node name="Light2D3" type="Light2D" parent="light"]
+position = Vector2( 258.36, -30 )
+scale = Vector2( 0.890625, 1 )
+texture = ExtResource( 6 )
+texture_scale = 0.12
+color = Color( 1, 0, 0, 1 )
+energy = 3.46
+shadow_gradient_length = 3.0
+shadow_filter = 2
+shadow_filter_smooth = 50.0
+
+[node name="Light2D4" type="Light2D" parent="light"]
+position = Vector2( 258.36, -85 )
+scale = Vector2( 0.890625, 1 )
+texture = ExtResource( 6 )
+texture_scale = 0.12
+color = Color( 1, 0, 0, 1 )
+energy = 3.46
+shadow_gradient_length = 3.0
+shadow_filter = 2
+shadow_filter_smooth = 50.0
+
+[node name="Light2D5" type="Light2D" parent="light"]
+position = Vector2( 256, 144 )
+scale = Vector2( 0.890625, 1 )
+texture = ExtResource( 6 )
+texture_scale = 0.12
+color = Color( 1, 0, 0, 1 )
+energy = 3.46
+shadow_gradient_length = 3.0
+shadow_filter = 2
+shadow_filter_smooth = 50.0
+
+[node name="BC" type="Node2D" parent="."]
+
+[node name="1" type="Sprite" parent="BC"]
+position = Vector2( 1112, 16 )
+texture = ExtResource( 4 )
+
+[node name="Bares" type="Sprite" parent="BC"]
+position = Vector2( 336, 184 )
+texture = ExtResource( 5 )
+
+[node name="WhiteBox" type="Sprite" parent="BC"]
+modulate = Color( 0.968627, 0, 0, 1 )
+position = Vector2( 256, 28 )
+scale = Vector2( 3, 22.5 )
+z_index = -1
+texture = ExtResource( 7 )
+
+[node name="WhiteBox2" type="Sprite" parent="BC"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 104, 35 )
+scale = Vector2( 19.5, 30.375 )
+z_index = -1
+texture = ExtResource( 7 )
+
+[node name="WhiteBox3" type="Sprite" parent="BC"]
+visible = false
+modulate = Color( 0.407843, 0.0352941, 0.0352941, 1 )
+position = Vector2( 1094, 40 )
+scale = Vector2( 105.25, 30.375 )
+z_index = -1
+texture = ExtResource( 7 )
+
+[node name="EFFECTS" type="Node2D" parent="."]
+z_index = -1
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="EFFECTS"]
+visible = false
+position = Vector2( 1308.75, -8 )
+scale = Vector2( 5.0908, 1 )
+frames = SubResource( 9 )
+playing = true
+
+[node name="TileMap2" parent="." instance=ExtResource( 9 )]
+tile_data = PoolIntArray( -851893, 0, 0, -851892, 0, 0, -786358, 0, 0, -786357, 0, 0, -786356, 0, 0, -786355, 0, 0, -655290, 0, 0, -655289, 0, 0, -655288, 0, 0, -589753, 0, 0, -589752, 0, 0, -458685, 1, 65537, -458684, 1, 65539, -393150, 1, 65537, -393149, 1, 65541, -393148, 1, 65540, -393147, 1, 65539, -327618, 1, 65537, -327617, 1, 65539, -327614, 1, 458753, -327613, 1, 458754, -327612, 1, 458754, -327611, 1, 458755, -327610, 0, 0, -327604, 0, 0, -327603, 0, 0, -327602, 0, 0, -327601, 0, 0, -327600, 0, 0, -327599, 0, 0, -327598, 0, 0, -327597, 0, 0, -262082, 1, 393217, -262081, 1, 65540, -262080, 1, 65539, -262074, 0, 0, -262073, 0, 0, -262072, 0, 0, -262071, 0, 0, -262070, 0, 0, -262069, 0, 0, -262068, 0, 0, -196546, 1, 393217, -196545, 1, 4, -196544, 1, 458755, -131026, 1, 65537, -131025, 1, 65538, -131024, 1, 65538, -131023, 1, 65538, -131022, 1, 65539, -131012, 1, 65537, -131011, 1, 65538, -131010, 1, 65541, -131009, 1, 393219, -65490, 1, 393217, -65489, 1, 393218, -65488, 1, 393218, -65487, 1, 393218, -65486, 1, 65540, -65485, 1, 65539, -65478, 1, 65537, -65477, 1, 65538, -65476, 1, 65541, -65475, 1, 393218, -65474, 1, 4, -65473, 1, 458755, 45, 1, 65537, 46, 1, 65541, 47, 1, 393218, 48, 1, 393218, 49, 1, 393218, 50, 1, 393218, 51, 1, 65540, 52, 1, 65539, 57, 1, 65537, 58, 1, 65541, 59, 1, 393218, 60, 1, 393218, 61, 1, 393218, 62, 1, 393219, 65581, 1, 458753, 65582, 1, 458754, 65583, 1, 458754, 65584, 1, 5, 65585, 1, 393218, 65586, 1, 393218, 65587, 1, 393218, 65588, 1, 65540, 65589, 1, 65538, 65590, 1, 65538, 65591, 1, 65538, 65592, 1, 65538, 65593, 1, 65541, 65594, 1, 393218, 65595, 1, 393218, 65596, 1, 393218, 65597, 1, 4, 65598, 1, 458755, 131120, 1, 458753, 131121, 1, 458754, 131122, 1, 458754, 131123, 1, 458754, 131124, 1, 458754, 131125, 1, 458754, 131126, 1, 458754, 131127, 1, 458754, 131128, 1, 458754, 131129, 1, 458754, 131130, 1, 458754, 131131, 1, 458754, 131132, 1, 458754, 131133, 1, 458755, 196647, 0, 0, 196648, 0, 0, 196649, 0, 0, 196650, 0, 0, 196651, 0, 0, 196652, 0, 0, 196653, 0, 0 )
+
+[node name="Spike" type="Node2D" parent="."]
+
+[node name="Spikes" parent="Spike" instance=ExtResource( 2 )]
+position = Vector2( 968, 20 )
+
+[node name="Spikes2" parent="Spike" instance=ExtResource( 2 )]
+position = Vector2( 984, 20 )
+
+[node name="Spikes3" parent="Spike" instance=ExtResource( 2 )]
+position = Vector2( 1000, 20 )
+
+[node name="Spikes4" parent="Spike" instance=ExtResource( 2 )]
+position = Vector2( 1016, 20 )
+
+[node name="Enemy" type="Node2D" parent="."]
+position = Vector2( 177, -16 )
+
+[node name="WalkingEnemy" parent="Enemy" instance=ExtResource( 10 )]
+position = Vector2( 1333, -70 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node2D"]
+
+[node name="Ladder" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1528, -76 )
+
+[node name="Ladder2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1528, -58 )
+
+[node name="Ladder3" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1528, -40 )
+
+[node name="Ladder4" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1528, -22 )
+
+[node name="Ladder5" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1528, -4 )
+
+[node name="Ladder6" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1528, 14 )
+
+[node name="Ladder7" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1528, 32 )
+
+[node name="Ladder8" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1528, 50 )
+
+[node name="Ladder9" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1528, 68 )
+
+[node name="Ladder10" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1528, 86 )
+
+[node name="Ladder11" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1528, 104 )

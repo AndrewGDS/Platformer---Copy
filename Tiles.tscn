@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://L17+ms.png" type="Texture" id=1]
+[ext_resource path="res://L16+ms.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 63.5, 63 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -28, 11.625 )
+scale = Vector2( 0.167832, 0.169581 )
+texture = ExtResource( 1 )
+hframes = 2
+vframes = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/StaticBody2D"]
+position = Vector2( -0.5, -1 )
+shape = SubResource( 1 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 12, 11.6562 )
+scale = Vector2( 0.167832, 0.17264 )
+texture = ExtResource( 2 )
+hframes = 2
+frame = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2/StaticBody2D"]
+position = Vector2( -0.5, -1 )
+shape = SubResource( 1 )
