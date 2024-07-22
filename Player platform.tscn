@@ -158,7 +158,7 @@ moveData = ExtResource( 5 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -16 )
 frames = SubResource( 10 )
-animation = "Idle"
+animation = "Jump"
 frame = 3
 playing = true
 

@@ -8,7 +8,7 @@ export(Resource) var moveData = preload("res://Player Data/DefaultPlayerMovement
 var velocity = Vector2.ZERO
 var state = MOVE
 var double_jump = 1
-var buffer_jump = false
+var jump_buffer = false
 var coyote_jump = false
 
 onready var animatedSprite: = $AnimatedSprite
@@ -16,7 +16,8 @@ onready var ladderCheck: = $LadderCheck
 onready var jumpBufferTimer: = $JumpBufferTimer
 onready var coyoteJumpTimer = $CoyotejumpTimer
 
- _physics_process(delta):
+# You idiot. You forgot the func. You baby. I wuv u. you baby
+func _physics_process(delta):
 	var input = Vector2.ZERO
 	input.x = Input.get_axis("left", "right")
 	input.y = Input.get_axis("ui_up", "ui_down")
@@ -33,20 +34,25 @@ func move_state(input):
 	
 	if not horizontal_move(input):
 		apply_friction()
-		animatedSprite.animation = "Idle"
+		if is_on_floor():
+			animatedSprite.animation = "Idle"
 	else:
 		apply_acceleration(input.x)
-		animatedSprite.animation = "Run"
-		
 		animatedSprite.flip_h = input.x < 0
+		if is_on_floor():
+			animatedSprite.animation = "Run"
 		
 	if is_on_floor():
 		reset_double_jump()
 	else:
-		animatedSprite.animation = "Jump"
+		if(velocity.y > 0):
+			animatedSprite.animation = "Fall"
 		
 	if can_jump():
-		input_jump()
+		if Input.is_action_just_pressed("jump") or jump_buffer: #jump
+			animatedSprite.animation = "Jump"
+			velocity.y = moveData.JUMP_FORCE
+			jump_buffer = false
 	else:
 		input_jump_release()
 		input_double_jump()
@@ -88,7 +94,7 @@ func input_double_jump():
 	
 func buffer_jump():
 	if Input.is_action_just_pressed("jump"):
-		buffer_jump = true
+		jump_buffer = true
 		jumpBufferTimer.start()
 
 func fast_fall():
@@ -104,11 +110,6 @@ func horizontal_move(input):
 func reset_double_jump():
 	double_jump = moveData.DOUBLE_JUMPS_COUNT
 	
-func input_jump():
-	if Input.is_action_just_pressed("jump") or buffer_jump: #jump
-		velocity.y = moveData.JUMP_FORCE
-		buffer_jump = false
-
 func is_on_ladder():
 	if not ladderCheck.is_colliding(): return false
 	var collider = ladderCheck.get_collider()
@@ -125,9 +126,8 @@ func apply_friction():
 func apply_acceleration(amount):
 	velocity.x = move_toward(velocity.x, moveData.MAX_SPEED * amount, moveData.ACCELERATION)
 			
-
 func _on_JumpBufferTimer_timeout():
-	buffer_jump = false
+	jump_buffer = false
 
 func _on_CoyotejumpTimer_timeout():
 	coyote_jump = false
